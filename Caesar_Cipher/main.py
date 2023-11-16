@@ -15,6 +15,21 @@ def caesar(message: str, shift: int, direction= 1) -> str:
             not_char += i
             message = message.replace(i,"")
 
+    """
+    str.maketrans()
+
+    Return a translation table usable for str.translate().
+    
+    If there is only one argument, it must be a dictionary mapping Unicode ordinals (integers) or characters to Unicode ordinals, strings or None. 
+    
+    Character keys will be then converted to ordinals. 
+    
+    If there are two arguments, they must be strings of equal length, and in the resulting dictionary, each character in x will be mapped to the character at the same position in y. 
+    
+    If there is a third argument, it must be a string, whose characters will be mapped to None in the result.
+    """
+    
+
     lower_mapping = str.maketrans(lowercase, lowercase[shift:] + lowercase[:shift])
     
     upper_mapping = str.maketrans(uppercase, uppercase[shift:] + uppercase[:shift])
@@ -30,9 +45,9 @@ def caesar(message: str, shift: int, direction= 1) -> str:
 
 def main():
     print(logo)
-    go_again = True
+    _continue = True
 
-    while go_again:
+    while _continue:
         try:
             direction = int(input("Type 1 to encrypt, type 0 to decrypt (default 1):\n"))
             message = input("Type your message:\n")
@@ -46,16 +61,15 @@ def main():
             
             print(caesar(message= message, shift= shift, direction= direction))
 
-            restart = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
-
+            restart = input("\nType 'yes' if you want to go again. Otherwise type 'no'.\n").lower()
+            
             if restart == "no":
-                go_again = False
+                _continue = False
                 print("Goodbye.")
             elif restart == "yes":
                 continue
             else:
-                print("I don't know what you mean... I'll break this for sure")
-                go_again = False
+                print("Sorry, I don't know what you mean! The program will continue.")
 
         except ValueError:
             print("Wrong format! Please try again...")
