@@ -10,9 +10,9 @@ def clear():
 def hangman_game(word_list: list, stages: list, lives= 6):
   chosen_word = random.choice(word_list)
 
-  lenght = len(chosen_word)
+  length = len(chosen_word)
 
-  display = ["_" for _ in range(lenght)]
+  display = ["_" for _ in range(length)]
 
   print(f"{stages[lives]}")
 
@@ -30,7 +30,7 @@ def hangman_game(word_list: list, stages: list, lives= 6):
         else:
             already_in = ""
 
-        for i in range(lenght):
+        for i in range(length):
             if guess == chosen_word[i]:
                 display[i] = guess
 
