@@ -1,2 +1,2 @@
 ﻿# Hi everyone
-These are my projects. The knowledge I have is applied to these projects.
+These projects embody the application of my acquired knowledge.
